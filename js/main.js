@@ -18,8 +18,8 @@ console.log(units+"units");
 
 
 
-const lineScaleX = d3.scaleLinear().domain([53,0]).range([0,units-10])
-const lineScaleY = d3.scaleLinear().domain([0,23]).range([6,yUnits-35])
+const lineScaleX = d3.scaleLinear().domain([53,1]).range([0,units-10])
+const lineScaleY = d3.scaleLinear().domain([0,23]).range([6,yUnits-60])
 
 const lineGenerator =  d3.line()
                     .x(d=> lineScaleX(d.checkPlace))
@@ -32,11 +32,14 @@ function highlight (musher){
 
 
     d3.selectAll('path').attr("class", "line")
+
+
     d3.selectAll('rect').attr("fill", "#444")
     d3.selectAll('rect').attr("rx", 4)
     d3.selectAll('rect').attr("ry", 4)
     d3.selectAll('rect').attr("height", 8)
     d3.selectAll('rect').attr("width", 8)
+    d3.selectAll('rect').attr("stroke", "none")
     
     
 const musherParsed =musher.replace(" ","").replace(" ", "");
@@ -44,14 +47,17 @@ const musherParsed =musher.replace(" ","").replace(" ", "");
     // console.log("this is the"+ musherParsed)
 
 
+    d3.selectAll('rect').attr("class", "rectSelect")
 
-        d3.select(`#${musherParsed}`).attr("fill", "none")
-        d3.select(`#${musherParsed}`).attr("stroke", "salmon")
+        d3.select(`#${musherParsed}`).attr("fill", "salmon")
+        // d3.select(`#${musherParsed}`).attr("class", "rectSelect")
         d3.select(`#${musherParsed}`).attr("stroke-width",2)
-        // d3.select(`#${musher.replace(" ","")}`).attr("width", 12)
-        // d3.select(`#${musher.replace(" ","")}`).attr("height", 12)
+        d3.select(`#${musherParsed}`).attr("stroke","yellow")
+        d3.select(`#${musher.replace(" ","")}`).attr("width", 10)
+        d3.select(`#${musher.replace(" ","")}`).attr("height", 10)
         d3.select(`#${musherParsed}`).attr("rx", 12)
         d3.select(`#${musherParsed}`).attr("ry", 12)
+        // d3.select(`#${musherParsed}`).append("g").append("text").attr("y", 10).attr("x", 10).text(musherParsed)
         // d3.select(`#_${musher.replace(" ","")}`).attr("stroke-width", 5)
         d3.select(`#_${musherParsed}`).transition().attr("class", "lineSelect")
 
@@ -131,7 +137,7 @@ const timesMini = times.filter((d,i)=> i%4 ==0)
         const leftOffset = 30;
         
         
-        const scaleX = d3.scaleLinear().domain([0,45]).range([0,units]);
+        const scaleX = d3.scaleLinear().domain([0,45]).range([0,yUnits-79]);
         // const scaleY = d3.scaleLinear().domain([0,52]).range([0,800]);
         
         
@@ -205,7 +211,7 @@ const timesMini = times.filter((d,i)=> i%4 ==0)
             
             svgLabel.selectAll('text').data(labelDataSelect).enter().append('text')
                 .attr("x", textY+leftOffset)
-                .attr('y', (d,i) =>  (i*22) +30)
+                .attr('y', (d,i) =>  (i*21) +30)
                 .text(d=> `${d.location_name}`)
                 .attr('text-anchor', "end")
                 .attr('class', "city")
@@ -337,6 +343,18 @@ lineData.forEach(function (r){
         //append svg
     const svgLine = d3.select("#line").append("svg").attr("width", units).attr("height", yUnits)
     
+
+
+
+const axis = d3.axisTop(lineScaleX)
+
+svgLine.append('g')
+.attr("transform", "translate(0,23)")
+.attr('class', "axisClass")
+    .call(axis)
+    .select(".domain").remove()
+
+
     
     const pete = lineData.filter(d=> d.musher == "Peter Kaiser")
     const joar = lineData.filter(d=> d.musher == "Joar Leifseth Ulsom")

@@ -159,6 +159,16 @@ stroke-width: 1px;
 
     }
 
+
+.rectSelect{
+
+/* fill: salmon;
+stroke-width: 1px; */
+/* transform: scaleY(10px); */
+
+
+}
+
     .lineSelect{
         fill: none;
         /* stroke: #555; */
@@ -218,9 +228,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
 /* border: dashed lightgray; */
 background-color: #f4f4f4; 
 /* font-size: 2rem; */
-font-family: 'Fira Mono', sans-serif;
-color: #222;
-font-weight: 900;
+font-family: "Fira Sans",sans-serif;
+color: #333;
+/* font-weight: 900; */
 font-style: italic;
 padding-right: 20px;
 /* margin: 0 auto; */
@@ -280,19 +290,32 @@ color: white;
 
 }
 
+
+.axisClass {
+
+/* stroke: none; */
+
+
+}
+
+.axisClass line {
+    visibility:hidden
+
+}
+
 .time{
 
     font-family: "Fira Mono";
     font-size: 2rem;
-    /* margin-left: 10px; */
+    margin-left: 10px;
     /* border-radius: 10px; */
     /* color: #666; */
     font-weight: 100;
     /* background-color: salmon; */
     background-color: #f4f4f4;
-    background-color:white; 
+    /* background-color:white;  */
 
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23686669' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23686669' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
 
 
 }
@@ -313,12 +336,12 @@ color: white;
 
     /* transform-origin: center center; */
     /* transform: rotate(9deg); */
-    font-family: "Fira Sans", monospace;
-    font-family: "Helvetica", sans-serif;
+    /* font-family: "Fira Sans", monospace;
+    font-family: "Helvetica", sans-serif; */
     font-family: "Fira Mono", monospace;
     /* font-family: "Open Sans", monospace; */
     font-size: .6rem;
-    font-weight: 900;
+    font-weight: 200;
     /* font-style: italic; */
     /* font-style: bold; */
     /* top: 100px;
