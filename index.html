@@ -28,7 +28,7 @@
 
         <div id=timeWrapper>
             
-         <div id="top">2019 Iditarod Replay - <span class="select"> Select A Musher to Follow ⬇</span></div>
+         <div id="top"><span class="select">  ⬇ Select A Musher to Follow ⬇</span></div>
 
             <div id="time"></div>
         
@@ -38,21 +38,73 @@
 
         <div id="pickerDiv">
             <select class="picker" onchange =highlight(this.value) >    
+                    <option value="Peter Kaiser">Pete Kaiser</option>
 
-                <option value="Peter Kaiser">Pete Kaiser</option>
-                <option value="Jeff King">Jeff King</option>
-                <option value="Jessica Klejka">Jessica Klejka</option>
-                <option value="Victoria Hardwick">Victoria Hardwick</option>
+                <option value="Aaron Burmeister">Aaron Burmeister</option>
+                <option value="Aaron Peck">Aaron Peck</option>
+                <option value="Alison Lifka">Alison Lifka</option>
+
                 <option value="Aliy Zirkle">Aliy Zirkle</option>
-                <option value="Nicolas Petit">Nic Petit</option>
-                <option value="Joar Leifseth Ulsom">Joar Leifseth Ulsom</option>
-                <option value="Richie Diehl">Richie Diehl</option>
-                <option value="Jessie Royer">Jessie Royer</option>
-                <option value="Paige Drobny">Paige Drobny</option>
-                <option value="Matt Hall">Matt Hall</option>
-                <option value="Lance Mackey">Lance Mackey</option>
-                <option value="Ed Hopkins">Ed Hopkins</option>
+                <option value="Anja Radano">Anja Radano</option>
+                <option value="Anna Berington">Anna Berington</option>
                 <option value="Blair Braverman">Blair Braverman</option>
+
+                <option value="Brett Bruggeman">Brett Bruggeman</option>
+                <option value="Charley Bejna">Charley Bejna</option>
+                <option value="Cindy Abbott">Cindy Abbott</option>
+                <option value="Cindy Gallea">Cindy Gallea</option>
+                <option value="Ed Hopkins">Ed Hopkins</option>
+                <option value="Cindy Gallea">Cindy Gallea</option>
+                <option value="Emily Maxwell">Emily Maxwell</option>
+                <option value="Jason Campeau">Jason Campeau</option>
+                <option value="Jeff Deeter">Jeff Deeter</option>
+                <option value="Jeff King">Jeff King</option>
+                <option value="Jeremy Keller">Jeremy Keller</option>
+                <option value="Jessica Klejka">Jessica Klejka</option>
+                <option value="Jessie Holmes">Jessie Holmes</option>
+                <option value="Jessie Royer">Jessie Royer</option>
+                <option value="Joar Leifseth Ulsom">Joar Leifseth Ulsom</option>
+                <option value="Kristin Bacon">Kristin Bacon</option>
+                <option value="Kristy Berington">Kristy Berington</option>
+                <option value="Lance Mackey">Lance Mackey</option>
+                <option value="Joar Leifseth Ulsom">Joar Leifseth Ulsom</option>
+                <option value="Lev Shvarts">Lev Shvarts</option>
+                <option value="Linwood Fiedler">Linwood Fiedler</option>
+                <option value="Marcelle Fressineau">Marcelle Fressineau</option>
+                <option value="Martin Apayauq Reitan">Martin Apayauq Reitan</option>
+                <option value="Martin Buser">Martin Buser</option>
+                <option value="Mats Pettersson">Mats Pettersson</option>
+                <option value="Matt Hall">Matt Hall</option>
+                <option value="Matthew Failor">Matthew Failor</option>
+                <option value="Michael Baker">Michael Baker</option>
+                <option value="Michi Konno">Michi Konno</option>
+                <option value="Mitch Seavey">Mitch Seavey</option>
+                <option value="Nicolas Petit">Nic Petit</option>
+                <option value="Niklas Wikstrand">Niklas Wikstrand</option>
+                <option value="Paige Drobny">Paige Drobny</option>
+                <option value="Peter Kaiser">Pete Kaiser</option>
+                <option value="Ramey Smyth">Ramey Smyth</option>
+                <option value="Richie Beattie">Richie Beattie</option>
+                <option value="Richie Diehl">Richie Diehl</option>
+                <option value="Robert Redington">Robert Redington</option>
+                <option value="Ryan Redington">Ryan Redington</option>
+                <option value="Ryan Santiago">Ryan Santiago</option>
+                <option value="Sarah Stokey">Sarah Stokey</option>
+                <option value="Sebastien Dos Santos Borges">Sebastien Dos Santos Borges</option>
+                <option value="Seth Barnes">Seth Barnes</option>
+                <option value="Shaynee Traska">Shaynee Traska</option>
+                <option value="Travis Beals">Travis Beals</option>
+                <option value="Victoria Hardwick">Victoria Hardwick</option>
+                <option value="Wade Marrs">Wade Marrs</option>
+
+
+
+
+
+
+
+
+
 
 
             </select>
@@ -70,12 +122,25 @@
 
             <div id="visWrapper">
 
-                    <div id="line"></div>
+                    <div id="line">
+                        <h5 class="visTitle">Race Place By CheckPoint</h3>
+                    </div>
 
-            <div id="dot"></div>
+            <div id="dot">
+                    <h5 class="visTitle">Race Flow</h3>
+
+
+            </div>
 
 
 
+    </div>
+    <div class="footer" >  
+        
+    
+            A project by <a href="https://benmatheson.github.io" target="__blank"> Ben Matheson.</a> The Iditarod checkpoint data may be incomplete. The Iditarod checkpoint and musher data are from <a href="https://iditarod.com/race/2019/checkpoints/" target="__blank">Iditarod.</a> This uses d3.js and a ton of preprocessing in R.
+
+    
     </div>
 
         </div>

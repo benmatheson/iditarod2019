@@ -8,7 +8,7 @@ const yUnits = 550;
 const screenWidth = window.innerWidth;
 
 var units;
-screenWidth < 500 ? units = 400 : units= (screenWidth -30)/2;
+screenWidth < 500 ? units = 350 : units= (screenWidth -30)/2;
 console.log(units+"units");
 
 
@@ -24,9 +24,13 @@ const lineScaleY = d3.scaleLinear().domain([0,23]).range([6,yUnits-60])
 const lineGenerator =  d3.line()
                     .x(d=> lineScaleX(d.checkPlace))
                     .y(d=>lineScaleY(d.index))
-                    .curve(d3.curveNatural) 
-                    .curve(d3.curveBundle) 
+                    // .curve(d3.curveNatural) 
+                    // .curve(d3.curveBundle) 
+                    // .curve(d3.curveStepBefore) 
                     .curve(d3.curveStep) 
+                    // .curve(d3.curveStepAfter) 
+                    // .curve(d3.curveCardinal) 
+                    // .curve(d3.curveLinear) 
 
 function highlight (musher){
 
@@ -49,12 +53,12 @@ const musherParsed =musher.replace(" ","").replace(" ", "");
 
     d3.selectAll('rect').attr("class", "rectSelect")
 
-        d3.select(`#${musherParsed}`).attr("fill", "salmon")
+        d3.select(`#${musherParsed}`).attr("fill", "black")
         // d3.select(`#${musherParsed}`).attr("class", "rectSelect")
-        d3.select(`#${musherParsed}`).attr("stroke-width",2)
-        d3.select(`#${musherParsed}`).attr("stroke","yellow")
-        d3.select(`#${musher.replace(" ","")}`).attr("width", 10)
-        d3.select(`#${musher.replace(" ","")}`).attr("height", 10)
+        d3.select(`#${musherParsed}`).attr("stroke-width",4)
+        d3.select(`#${musherParsed}`).attr("stroke","salmon")
+        d3.select(`#${musher.replace(" ","")}`).attr("width", 8)
+        d3.select(`#${musher.replace(" ","")}`).attr("height", 8)
         d3.select(`#${musherParsed}`).attr("rx", 12)
         d3.select(`#${musherParsed}`).attr("ry", 12)
         // d3.select(`#${musherParsed}`).append("g").append("text").attr("y", 10).attr("x", 10).text(musherParsed)
