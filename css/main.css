@@ -236,7 +236,7 @@ background-color: #f4f4f4;
 font-family: "Fira Sans",sans-serif;
 color: #333;
 /* font-weight: 900; */
-font-style: italic;
+/* font-style: italic; */
 padding-right: 20px;
 /* box-shadow: 3px 3px 4px rgba(0,0,0,.12); */
 
@@ -266,11 +266,13 @@ justify-content: center;
 /* margin: 0 auto; */
 /* max-width: 30%; */
 background-color: white; 
-font-size: 1.5rem;
-font-weight: 500;
+font-size: 1.2rem;
+font-weight: 900;
 font-family: 'Fira Sans', sans-serif;
 /* background: red; */    outline:none; 
 margin-right: 10px;
+padding: 2px;
+/* margin:0; */
 }
 
 .replay {
@@ -279,11 +281,11 @@ margin-right: 10px;
     /* margin: 0 auto; */
     /* max-width: 30%; */
     background-color: white; 
-    background-color: #333; 
+    /* background-color: #f4f4f4; */
 color: salmon;
-font-style: italic;
+/* font-style: italic; */
     font-size: 1.2rem;
-    font-weight: 200;
+    font-weight: 900;
 border-radius: 5px;
 padding: 4px;
 
@@ -348,10 +350,14 @@ font-family: "Fira Mono", monospace;
 
     background-color: salmon;
     background-color:#333;
+    background-color: #f4f4f4;
+    background-color:white;
+    
+
     /* background-color: greenyellow; */
     color: white;
     color:salmon;
-    padding: 4px;
+    padding: 6px;
     border-radius:4px;
     font-style:normal;
     font-weight:100;
@@ -365,14 +371,18 @@ font-family: "Fira Mono", monospace;
 .time{
 
     font-family: "Fira Mono";
+    font-family: "Helvetica", sans-serif;
     font-size: 2rem;
     margin-left: 10px;
     /* border-radius: 10px; */
     /* color: #666; */
-    font-weight: 100;
+    font-weight: 900;
+    color: #444;
     /* background-color: salmon; */
     background-color: #f4f4f4;
-    padding: 10px;
+    background-color:white;
+
+    padding: 9px 17px 9px 17px;
     box-shadow: 3px 2px 7px 2px rgba(0,0,0,.07);
     border-radius: 5px;
 
