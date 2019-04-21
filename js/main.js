@@ -1,3 +1,4 @@
+var musherHighlight = "Peter Kaiser"
 // const sortTimes =times.sort((a,b)=> b-a);
 
 // console.log(times)
@@ -32,8 +33,10 @@ const lineGenerator =  d3.line()
                     // .curve(d3.curveCardinal) 
                     // .curve(d3.curveLinear) 
 
+
 function highlight (musher){
 
+musherHighlight = musher;
 
     d3.selectAll('path').attr("class", "line")
 
@@ -55,10 +58,10 @@ const musherParsed =musher.replace(" ","").replace(" ", "");
 
         d3.select(`#${musherParsed}`).attr("fill", "black")
         // d3.select(`#${musherParsed}`).attr("class", "rectSelect")
-        d3.select(`#${musherParsed}`).attr("stroke-width",4)
+        d3.select(`#${musherParsed}`).attr("stroke-width",5)
         d3.select(`#${musherParsed}`).attr("stroke","salmon")
-        d3.select(`#${musher.replace(" ","")}`).attr("width", 8)
-        d3.select(`#${musher.replace(" ","")}`).attr("height", 8)
+        d3.select(`#${musher.replace(" ","")}`).attr("width", 9)
+        d3.select(`#${musher.replace(" ","")}`).attr("height", 9)
         d3.select(`#${musherParsed}`).attr("rx", 12)
         d3.select(`#${musherParsed}`).attr("ry", 12)
         // d3.select(`#${musherParsed}`).append("g").append("text").attr("y", 10).attr("x", 10).text(musherParsed)
@@ -80,7 +83,7 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
 
 
 // const timesMini = times.filter((d,i)=> i%10 ==0)
-const timesMini = times.filter((d,i)=> i%12 ==0)
+const timesMini = times.filter((d,i)=> i%6 ==0)
 console.log(timesMini)
 
 // const timesSmall = times.filter(d=> d>'2019-03-04 12:10:00'&&  d>'2019-03-04 19:10:00')
@@ -195,7 +198,7 @@ console.log(timesMini)
             .attr("width", 8)
             .attr("height", 8)
             // .attr("y", d=>scaleX(d.index)).attr('x', (d,i)=>700-(i*7))
-            .attr("y", d=>scaleX(d.index)+20)
+            .attr("y", d=>scaleX(d.index)+13)
             .attr('x', d=>d.relOrder*10 +leftOffset+60)
             .attr("opacity", 1)
             .attr("currentMusher", d=>d.currentMusher)
@@ -225,18 +228,15 @@ console.log(timesMini)
                 .attr('class', "city")
             
             
-            // highlight("LanceMackey")
+                highlight(musherHighlight);
+                console.log('musherHighLight')
+                console.log(musherHighlight)
 
 
 
 
 
-
-
-
-
-
-        const pete1 = d3.select("#PeterKaiser").attr("stroke-width", 4).attr("stroke", "salmon")
+        // const pete1 = d3.select("#PeterKaiser").attr("stroke-width", 4).attr("stroke", "salmon")
 
 
             
@@ -252,7 +252,7 @@ console.log(timesMini)
                 const newRects = svgG.selectAll('rect').data(currentData, d=>d.currentMusher)
                 
                 newRects.transition()
-                    .duration(430)
+                    .duration(550)
                     .attr("y", d=>scaleX(d.index)+13)
                     .attr('x', (d,i)=>(d.relOrder*10+leftOffset+60))
                     .attr("opacity", d=> d.index%2 > 0 ? .3 : 1)
@@ -272,7 +272,7 @@ console.log(timesMini)
 
 
                 if (i <= timesMini.length) {
-        setTimeout(inner,400*i)
+        setTimeout(inner,600*i)
              } else  {
                  
                 console.log("DDdone??");
@@ -286,6 +286,7 @@ console.log(timesMini)
             } //loop
         
             loop()
+            highlight(musherHighlight);
         // var waff = dropSvg.selectAll('div').data(waffArray)
         // waff.exit().remove()
         
