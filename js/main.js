@@ -189,7 +189,7 @@ const timesMini = times.filter((d,i)=> i%4 ==0)
             .attr("height", 8)
             // .attr("y", d=>scaleX(d.index)).attr('x', (d,i)=>700-(i*7))
             .attr("y", d=>scaleX(d.index)+20)
-            .attr('x', d=>d.relOrder*10 +leftOffset+70)
+            .attr('x', d=>d.relOrder*10 +leftOffset+60)
             .attr("opacity", 1)
             .attr("currentMusher", d=>d.currentMusher)
             .attr("id", d=>d.musher)
@@ -264,7 +264,7 @@ const timesMini = times.filter((d,i)=> i%4 ==0)
             // .attr("height", d=> d.index%2 > 0 ? 7 : 5)
             // .attr("width", d=> d.index%2 > 0 ? 7 : 5)
             .attr("y", d=>scaleX(d.index)+13)
-            .attr('x', (d,i)=>(d.relOrder*10+leftOffset+70))
+            .attr('x', (d,i)=>(d.relOrder*10+leftOffset+60))
             // .attr('x', 30)
             // .attr("width", d=> d.index%2 > 0 ? 4 : 7)
             // .attr("height", d=> d.index%2 > 0 ? 4 : 7)
@@ -346,7 +346,7 @@ lineData.forEach(function (r){
 
 
 
-const axis = d3.axisTop(lineScaleX)
+const axis = d3.axisTop(lineScaleX).tickValues([1,10,20, 30,40, 50])
 
 svgLine.append('g')
 .attr("transform", "translate(0,23)")

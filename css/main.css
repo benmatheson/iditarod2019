@@ -294,8 +294,21 @@ color: white;
 .axisClass {
 
 /* stroke: none; */
+font-family: "Fira Mono", monospace;
 
+}
 
+.select {
+
+    background-color: salmon;
+    background-color:#333;
+    /* background-color: greenyellow; */
+    color: white;
+    color:salmon;
+    padding: 4px;
+    border-radius:4px;
+    font-style:normal;
+    font-weight:100;
 }
 
 .axisClass line {
