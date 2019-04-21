@@ -69,7 +69,7 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
 // parseTime("June 30, 2015"); // Tue Jun 30 2015 00:00:00 GMT-0700 (PDT)
 
 
-
+const timesMini = times.filter((d,i)=> i%4 ==0)
 
 
 // const timesSmall = times.filter(d=> d>'2019-03-04 12:10:00'&&  d>'2019-03-04 19:10:00')
@@ -87,8 +87,8 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
             d3.csv("data/resGroup.csv", function (lineData){
 
 
-        document.querySelector(".replay").addEventListener("click", full)
-        function full (){
+        document.querySelector(".replay").addEventListener("click", loop)
+        // function full (){
 
             console.log("is this full!!")
                     d3.selectAll('svg').remove();
@@ -99,9 +99,9 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
                 const width = units;
                 
                 
-                const svg = d3.select("#dot").append('svg').attr("height",height).attr("width", width).attr("class", "bg")
-                const svgG = svg.append('g')
-                const svgLabel = svg.append('g');
+                // const svg = d3.select("#dot").append('svg').attr("height",height).attr("width", width).attr("class", "bg")
+                // const svgG = svg.append('g')
+                // const svgLabel = svg.append('g');
                 
                 // const svgLine = d3.select("#line").append("svg").attr("width", units).attr("height", yUnits)
                 
@@ -135,41 +135,6 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
         // const scaleY = d3.scaleLinear().domain([0,52]).range([0,800]);
         
         
-        var recs = svgG.selectAll('rect').data(start, d=>d.currentMusher).enter()
-        .append('rect')
-        .attr("width", 8)
-        .attr("height", 8)
-        // .attr("y", d=>scaleX(d.index)).attr('x', (d,i)=>700-(i*7))
-        .attr("y", d=>scaleX(d.index)+20)
-        .attr('x', d=>d.relOrder*10 +leftOffset+70)
-        .attr("opacity", 1)
-        .attr("currentMusher", d=>d.currentMusher)
-        .attr("id", d=>d.musher)
-        .attr("rx", 4)
-        .attr("ry", 4)
-        // .attr("stroke", 'white')
-        .attr("fill", '#444')
-        // const textArea = svgTop.append('g')
-        const textArea = d3.select('#time').append('p')
-        
-        
-        const svg1 = svgG.append('g')
-        const textY = 60
-        
-        
-        const labelDataSelect = labelData.filter((d,i)=> i%2 == 0)
-   
-        
-        
-        svgLabel.selectAll('text').data(labelDataSelect).enter().append('text')
-            .attr("x", textY+leftOffset)
-            .attr('y', (d,i) =>  (i*22) +30)
-            .text(d=> `${d.location_name}`)
-            .attr('text-anchor', "end")
-            .attr('class', "city")
-        
-        
-        
         
         
         
@@ -197,9 +162,70 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
         function loop () {
         
         
-            console.log(times.length)
+        //    svg ? svg.remove() : console.log('no svg')
 
-            times.forEach(function(t, i){
+                  
+        d3.selectAll('#dotSvg').remove();
+        
+
+        
+            const svg = d3.select("#dot").append('svg').attr("height",height).attr("width", width).attr("class", "bg").attr("id", "dotSvg")
+            const svgG = svg.append('g')
+            const svgLabel = svg.append('g');
+
+
+            d3.selectAll('p').remove();
+
+
+            var recs = svgG.selectAll('rect').data(start, d=>d.currentMusher).enter()
+            .append('rect')
+            .attr("width", 8)
+            .attr("height", 8)
+            // .attr("y", d=>scaleX(d.index)).attr('x', (d,i)=>700-(i*7))
+            .attr("y", d=>scaleX(d.index)+20)
+            .attr('x', d=>d.relOrder*10 +leftOffset+70)
+            .attr("opacity", 1)
+            .attr("currentMusher", d=>d.currentMusher)
+            .attr("id", d=>d.musher)
+            .attr("rx", 4)
+            .attr("ry", 4)
+            // .attr("stroke", 'white')
+            .attr("fill", '#444')
+            // const textArea = svgTop.append('g')
+            const textArea = d3.select('#time').append('p')
+            
+            
+            const svg1 = svgG.append('g')
+            const textY = 60
+            
+            
+            const labelDataSelect = labelData.filter((d,i)=> i%2 == 0)
+       
+            
+            
+            svgLabel.selectAll('text').data(labelDataSelect).enter().append('text')
+                .attr("x", textY+leftOffset)
+                .attr('y', (d,i) =>  (i*22) +30)
+                .text(d=> `${d.location_name}`)
+                .attr('text-anchor', "end")
+                .attr('class', "city")
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            timesMini.forEach(function(t, i){
         // console.log(i)
                 if (i <= times.length-1) {
         setTimeout(function inner (){
@@ -225,7 +251,7 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
         
         
         newRects.transition()
-            .duration(200)
+            .duration(300)
             // newRects.enter().append('rect')
             // .attr("width", 8)
             // .attr("height", 8)
@@ -266,7 +292,7 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
         // const unk = textArea.append('p').text("Unalakleet").attr("class", "city")
         
         
-            },200*i)
+            },300*i)
              } else  {
                  
                 console.log("DDdone??");
@@ -277,7 +303,7 @@ var formatStamp = d3.timeFormat("%A, %B %e %H:%M")
             
             })
         
-            }
+            } //loop
         
             loop()
         // var waff = dropSvg.selectAll('div').data(waffArray)
@@ -368,10 +394,10 @@ lineData.forEach(function (r){
         
         
        
-} // full
+// } // full
 
 
-full(); 
+// full(); 
         
         
         
