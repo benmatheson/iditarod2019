@@ -397,26 +397,32 @@ font-family: "Fira Mono", monospace;
 
 .city {
 
-    /* transform-origin: center center; */
-    /* transform: rotate(9deg); */
-    /* font-family: "Fira Sans", monospace;
-    font-family: "Helvetica", sans-serif; */
+
     font-family: "Fira Mono", monospace;
     /* font-family: "Open Sans", monospace; */
     font-size: .6rem;
     font-weight: 200;
-    /* font-style: italic; */
-    /* font-style: bold; */
-    /* top: 100px;
-    left: 400px; */
-     /* display: block; */
-    /* position: fixed; */
+
+    
     z-index: 100;
     /* display: inline-block; */
 
 }
 
 
+.citySmall {
+
+
+    font-family: "Fira Mono", monospace;
+    /* font-family: "Open Sans", monospace; */
+    font-size: .6rem;
+    font-weight: 200;
+    z-index: 100;
+    /* text-shadow: -1px -1px white, -1px 1px white, 1px 1px white, 1px -1px white, -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
+
+    /* display: inline-block; */
+
+}
 
 
 
@@ -607,6 +613,25 @@ font-family: "Fira Mono", monospace;
 
 @media only screen and (max-width: 740px) {
 
+.select {
+
+    font-family: "Helvetica", sans-serif;
+    background-color: #f4f4f4;
+
+
+}
+
+.replay {
+
+    font-family: "Helvetica", sans-serif;
+    background-color: #f4f4f4;
+    font-style: normal;
+    color: black;
+    font-weight:600;
+    padding: 10px;
+
+}
+
 #visWrapper {
 
 flex-direction: column-reverse;
@@ -616,7 +641,9 @@ flex-direction: column-reverse;
 #timeWrapper {
 
     font-size: 1rem;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    font-family: "Helvetica", sans-serif;
+    /* background-color: white; */
     /* box-shadow: 3px 3px 4px rgba(0,0,0,.12); */
     
 
@@ -624,17 +651,26 @@ flex-direction: column-reverse;
 
 .picker {
 
-    min-height: 20px;
+    /* min-height: 20px; */
     font-size:1rem;
+    font-family: "Helvetica", sans-serif;
+
 
 }
 
+.city .citySmall {
+
+
+    font-family: "Helvetica", sans-serif;
+
+}
 
 
 .time{
 
     font-family: "Fira Mono";
     font-size: 1.4rem;
+    font-family: "Helvetica", sans-serif;
 
 }
 
