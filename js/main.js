@@ -252,7 +252,7 @@ console.log(timesMini)
                 const newRects = svgG.selectAll('rect').data(currentData, d=>d.currentMusher)
                 
                 newRects.transition()
-                    .duration(550)
+                    .duration(600)
                     .attr("y", d=>scaleX(d.index)+13)
                     .attr('x', (d,i)=>(d.relOrder*10+leftOffset+60))
                     .attr("opacity", d=> d.index%2 > 0 ? .3 : 1)
