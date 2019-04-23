@@ -19,7 +19,7 @@ console.log(units+"units");
 
 
 
-const lineScaleX = d3.scaleLinear().domain([53,1]).range([90,units-10])
+const lineScaleX = d3.scaleLinear().domain([1,53]).range([90,units-5])
 const lineScaleY = d3.scaleLinear().domain([0,23]).range([6,yUnits-60])
 
 const lineGenerator =  d3.line()
@@ -325,7 +325,7 @@ lineData.forEach(function (r){
     const svgLabelLine = svgLine.append('g');
 
     svgLabelLine.selectAll('text').data(labelDataSelect).enter().append('text')
-        .attr("x", leftOffset+55)
+        .attr("x", leftOffset+50) //used to be 55
         .attr('y', (d,i) =>  (i*21) +30)
         .text(d=> `${d.location_name}`)
         .attr('text-anchor', "end")
