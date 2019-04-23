@@ -191,6 +191,7 @@ console.log(timesMini)
 
 
             d3.selectAll('p').remove();
+            d3.selectAll('span.timeSpan').remove();
 
 
             var recs = svgG.selectAll('rect').data(start, d=>d.currentMusher).enter()
@@ -208,7 +209,8 @@ console.log(timesMini)
             // .attr("stroke", 'white')
             .attr("fill", '#444')
             // const textArea = svgTop.append('g')
-            const textArea = d3.select('#time').append('p')
+            // const textArea = d3.select('#time').append('p')
+            const textArea = d3.select('#time').append('span').attr("class", "timeSpan")
             
         
 
@@ -252,7 +254,7 @@ console.log(timesMini)
                 const newRects = svgG.selectAll('rect').data(currentData, d=>d.currentMusher)
                 
                 newRects.transition()
-                    .duration(600)
+                    .duration(400)
                     .attr("y", d=>scaleX(d.index)+13)
                     .attr('x', (d,i)=>(d.relOrder*10+leftOffset+60))
                     .attr("opacity", d=> d.index%2 > 0 ? .3 : 1)
@@ -272,7 +274,7 @@ console.log(timesMini)
 
 
                 if (i <= timesMini.length) {
-        setTimeout(inner,600*i)
+        setTimeout(inner,400*i)
              } else  {
                  
                 console.log("DDdone??");
